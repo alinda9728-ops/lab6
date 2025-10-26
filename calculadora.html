@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="stylesc.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+           
+        </header>
+
+        <!-- Menú Principal -->
+        <div id="menu-principal" class="menu-principal">
+              <h1>Calculadora DS</h1>
+              <p>Selecciona la operación que deseas realizar</p>
+            <div class="botones-principales">
+                <button class="btn-operacion" data-operacion="suma">
+                    <span class="icono">➕</span>
+                    <span>Suma</span>
+                </button>
+                <button class="btn-operacion" data-operacion="resta">
+                    <span class="icono">➖</span>
+                    <span>Resta</span>
+                </button>
+                <button class="btn-operacion" data-operacion="multiplicacion">
+                    <span class="icono">✖️</span>
+                    <span>Multiplicación</span>
+                </button>
+                <button class="btn-operacion" data-operacion="division">
+                    <span class="icono">➗</span>
+                    <span>División</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Calculadora de Suma -->
+        <div id="calculadora-suma" class="calculadora oculto">
+            <div class="calculadora-header">
+                <h2>Calculadora de Suma</h2>
+                <button onclick="volverAlMenu()" class="btn-volver">← Volver</button>
+            </div>
+            <div class="display-container">
+                <div class="operacion-display">
+                    <span id="display-num1-suma" class="numero-display">0</span>
+                    <span class="operador-display">+</span>
+                    <span id="display-num2-suma" class="numero-display">0</span>
+                    <span class="igual-display">=</span>
+                    <span id="resultado-suma" class="resultado-display">0</span>
+                </div>
+            </div>
+            <div class="teclado">
+                <div class="numeros-container">
+                    <div class="numeros">
+                        <button class="btn-numero" onclick="agregarNumero('suma', 7)">7</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 8)">8</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 9)">9</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 4)">4</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 5)">5</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 6)">6</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 1)">1</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 2)">2</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 3)">3</button>
+                        <button class="btn-numero" onclick="agregarNumero('suma', 0)">0</button>
+                        <button class="btn-limpiar" onclick="limpiarCalculadora('suma')">C</button>
+                        <button class="btn-borrar" onclick="borrarUltimo('suma')">⌫</button>
+                    </div>
+                </div>
+                <div class="controles">
+                    <button class="btn-seleccionar" onclick="seleccionarPrimerNumero('suma')">
+                        Seleccionar Primer Número
+                    </button>
+                    <button class="btn-seleccionar" onclick="seleccionarSegundoNumero('suma')">
+                        Seleccionar Segundo Número
+                    </button>
+                    <button class="btn-calcular" onclick="calcularSuma()">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculadora de Resta -->
+        <div id="calculadora-resta" class="calculadora oculto">
+            <div class="calculadora-header">
+                <h2>Calculadora de Resta</h2>
+                <button onclick="volverAlMenu()" class="btn-volver">← Volver</button>
+            </div>
+            <div class="display-container">
+                <div class="operacion-display">
+                    <span id="display-num1-resta" class="numero-display">0</span>
+                    <span class="operador-display">-</span>
+                    <span id="display-num2-resta" class="numero-display">0</span>
+                    <span class="igual-display">=</span>
+                    <span id="resultado-resta" class="resultado-display">0</span>
+                </div>
+            </div>
+            <div class="teclado">
+                <div class="numeros-container">
+                    <div class="numeros">
+                        <button class="btn-numero" onclick="agregarNumero('resta', 7)">7</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 8)">8</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 9)">9</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 4)">4</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 5)">5</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 6)">6</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 1)">1</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 2)">2</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 3)">3</button>
+                        <button class="btn-numero" onclick="agregarNumero('resta', 0)">0</button>
+                        <button class="btn-limpiar" onclick="limpiarCalculadora('resta')">C</button>
+                        <button class="btn-borrar" onclick="borrarUltimo('resta')">⌫</button>
+                    </div>
+                </div>
+                <div class="controles">
+                    <button class="btn-seleccionar" onclick="seleccionarPrimerNumero('resta')">
+                        Seleccionar Primer Número
+                    </button>
+                    <button class="btn-seleccionar" onclick="seleccionarSegundoNumero('resta')">
+                        Seleccionar Segundo Número
+                    </button>
+                    <button class="btn-calcular" onclick="calcularResta()">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculadora de Multiplicación -->
+        <div id="calculadora-multiplicacion" class="calculadora oculto">
+            <div class="calculadora-header">
+                <h2>Calculadora de Multiplicación</h2>
+                <button onclick="volverAlMenu()" class="btn-volver">← Volver</button>
+            </div>
+            <div class="display-container">
+                <div class="operacion-display">
+                    <span id="display-num1-multiplicacion" class="numero-display">0</span>
+                    <span class="operador-display">×</span>
+                    <span id="display-num2-multiplicacion" class="numero-display">0</span>
+                    <span class="igual-display">=</span>
+                    <span id="resultado-multiplicacion" class="resultado-display">0</span>
+                </div>
+            </div>
+            <div class="teclado">
+                <div class="numeros-container">
+                    <div class="numeros">
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 7)">7</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 8)">8</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 9)">9</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 4)">4</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 5)">5</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 6)">6</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 1)">1</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 2)">2</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 3)">3</button>
+                        <button class="btn-numero" onclick="agregarNumero('multiplicacion', 0)">0</button>
+                        <button class="btn-limpiar" onclick="limpiarCalculadora('multiplicacion')">C</button>
+                        <button class="btn-borrar" onclick="borrarUltimo('multiplicacion')">⌫</button>
+                    </div>
+                </div>
+                <div class="controles">
+                    <button class="btn-seleccionar" onclick="seleccionarPrimerNumero('multiplicacion')">
+                        Seleccionar Primer Número
+                    </button>
+                    <button class="btn-seleccionar" onclick="seleccionarSegundoNumero('multiplicacion')">
+                        Seleccionar Segundo Número
+                    </button>
+                    <button class="btn-calcular" onclick="calcularMultiplicacion()">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculadora de División -->
+        <div id="calculadora-division" class="calculadora oculto">
+            <div class="calculadora-header">
+                <h2>Calculadora de División</h2>
+                <button onclick="volverAlMenu()" class="btn-volver">← Volver</button>
+            </div>
+            <div class="display-container">
+                <div class="operacion-display">
+                    <span id="display-num1-division" class="numero-display">0</span>
+                    <span class="operador-display">÷</span>
+                    <span id="display-num2-division" class="numero-display">0</span>
+                    <span class="igual-display">=</span>
+                    <span id="resultado-division" class="resultado-display">0</span>
+                </div>
+            </div>
+            <div class="teclado">
+                <div class="numeros-container">
+                    <div class="numeros">
+                        <button class="btn-numero" onclick="agregarNumero('division', 7)">7</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 8)">8</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 9)">9</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 4)">4</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 5)">5</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 6)">6</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 1)">1</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 2)">2</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 3)">3</button>
+                        <button class="btn-numero" onclick="agregarNumero('division', 0)">0</button>
+                        <button class="btn-limpiar" onclick="limpiarCalculadora('division')">C</button>
+                        <button class="btn-borrar" onclick="borrarUltimo('division')">⌫</button>
+                    </div>
+                </div>
+                <div class="controles">
+                    <button class="btn-seleccionar" onclick="seleccionarPrimerNumero('division')">
+                        Seleccionar Primer Número
+                    </button>
+                    <button class="btn-seleccionar" onclick="seleccionarSegundoNumero('division')">
+                        Seleccionar Segundo Número
+                    </button>
+                    <button class="btn-calcular" onclick="calcularDivision()">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scriptc.js"></script>
+</body>
+</html>
